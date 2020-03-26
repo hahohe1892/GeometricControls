@@ -39,19 +39,19 @@ plotting='off'
 ## Reference parameters
 y_dim, x_dim, slope, dc, gap_halfwidth, step = standardvalues()
 
-fixfront=False
+fixfront=True
 
-bump_height=[0,0]
+bump_height=[0]
 bump_spread=[0,0]
 bump_pos=[0,0]
 bump_skew=[0,0]
 
-bay_height1=[-675,1350]
+bay_height1=[1350]
 bay_spread1=[20000,20000]
 bay_pos1=[55000,55000]
 bay_skew1=[0,0]
 
-bay_height2=[-675,1350]
+bay_height2=[1350]
 bay_spread2=[20000,20000]
 bay_pos2=[55000,55000]
 bay_skew2=[0,0]
@@ -76,7 +76,7 @@ influx_height=[0]
 
 
 
-final_time=[50]
+final_time=[100]
 timestepping=[0.01]
 output_frequency=[100]
 
