@@ -18,8 +18,8 @@ clustername = 'Stallo'
 
 if clustername == 'Stallo':
     clusterident='Stallo'
-    cluster = stallo('numnodes', 1, 'cpuspernode', 16, 'time', 4 * 60, 'queue', 'devel')  # time in minutes
-    #cluster = stallo('numnodes', 1, 'cpuspernode', 16, 'mem', 1.9, 'time', 20 * 60)  #time in minutes
+    #cluster = stallo('numnodes', 1, 'cpuspernode', 16, 'time', 4 * 60, 'queue', 'devel')  # time in minutes
+    cluster = stallo('numnodes', 1, 'cpuspernode', 16, 'mem', 1.9, 'time', 6 * 60)  #time in minutes
     #cluster = stallo('numnodes', 1, 'cpuspernode', 16, 'mem', 1.9, 'time', 10 * 60)  #time in minutes
 else:
     #cluster = generic('name', clustername, 'np', 1, 'valgrind', '/usr/bin/valgrind', 'valgrindlib', '/usr/lib/valgrind/libmpiwrap-amd64-linux.so')
@@ -41,9 +41,9 @@ y_dim, x_dim, slope, dc, gap_halfwidth, step = standardvalues()
 
 fixfront=False
 
-bump_height=[180]
-bump_spread=[20000,20000]
-bump_pos=[55000,55000]
+bump_height=[180,-240]
+bump_spread=[30000,30000]
+bump_pos=[50000,50000]
 bump_skew=[0,0]
 
 bay_height1=[0,0]
@@ -66,8 +66,8 @@ min_thickness_mask=[1]
 spcvx=[50]
 hmin=[350]
 null_level=[-450]
-frontal_melt=[400]
-floating_melt=[60]
+frontal_melt=[200]
+floating_melt=[30]
 friction=[40]
 start_icefront=[60000]
 max_stress=[1000000]
@@ -290,8 +290,7 @@ which_run={'SpinUp':['SpinUp', 'SpinUp', 'dummy', 'Transient'],
            #'extenddomain':['extenddomain', 'extenddomain','GeomProj_SpinUp_SG_spcvx800_NL-500_FrM200_FlMreal30_FC40_FT125_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_newestMassSpc_MSF100000_xdim62000_fineMesh75_noMinCalv_parStart2.nc','Transient']
           # 'extenddomain':['extenddomain', 'extenddomain','GeomProj_extenddomain_SG_spcvx800_NL-500_FrM200_FlMreal30_FC40_FT50_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_newMassSpc_MSF200000_xdim65000_finestMesh_noMinCalv_accT175_parStart10_inH0_fixedfrontandnocal.nc','Transient'],
           # 'extenddomain':['extenddomain', 'extenddomain','GeomProj_SpinUp_load_SG_spcvx50_NL-450_FrM200_FlMreal100_FC40_FT100_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_MSF200000_xdim85000_accT825_inH0_smb55_smbPos30000_funnel300_FullMelt.nc','Transient'],
-          # 'extenddomain':['extenddomain', 'extenddomain','GeomProj_SpinUp_load_SG_spcvx50_NL-450_FrM200_FlMreal30_FC40_FT100_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_MSF200000_xdim85000_accT875_inH0_smb55_smbPos30000_funnel300_FullMelt.nc','Transient'],
-           'extenddomain':['extenddomain', 'extenddomain','GeomProj_SpinUp_load_SG_spcvx50_NL-450_FrM400_FlMreal60_FC40_FT50_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_MSF200000_xdim85000_accT925_inH0_smb55_smbPos30000_funnel300_FullMelt.nc','Transient'],
+           'extenddomain':['extenddomain', 'extenddomain','GeomProj_SpinUp_load_SG_spcvx50_NL-450_FrM200_FlMreal30_FC40_FT100_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_MSF200000_xdim85000_accT875_inH0_smb55_smbPos30000_funnel300_FullMelt.nc','Transient'],
            'insertatinflux':['insertatinflux', 'insertatinflux', 'GeomProj_extenddomain_SG_spcvx800_NL-500_FrM200_FlMreal30_FC40_FT50_TS0.01_OF100_hmin350_BuH0_BuP0_BuS0_ByH0_ByP0_ByS0_Stallo_IF60000_MS1000000_newMassSpc_MSF200000_xdim65000_finestMesh_noMinCalv_accT175_parStart10_inH0_fixedfrontandnocal.nc','Transient']
            }
 
