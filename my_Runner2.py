@@ -118,7 +118,7 @@ def SpinUp(params, run_name, load_name):
 
 def SpinUp_load(params, run_name, load_name, fixfront):
 
-    restart_time=-1
+    restart_time=50
     y_dim, x_dim, slope, dc, gap_halfwidth, step = standardvalues()
     x_dim=params['x_dim']
 
@@ -158,7 +158,7 @@ def SpinUp_load(params, run_name, load_name, fixfront):
     return md
 
 def extenddomain(params, run_name, load_name, fixfront):
-    restart_time=-1
+    restart_time=-45
     y_dim, x_dim, slope, dc, gap_halfwidth, step = standardvalues()
     start_icefront=params['start_icefront']
     slab_thickness=params['slab_thickness']
@@ -178,7 +178,7 @@ def extenddomain(params, run_name, load_name, fixfront):
     old_mesh_geometry=md.geometry.bed
     h=np.nan*np.ones(md.mesh.numberofvertices)
     #h[np.where(np.logical_and(np.logical_and(md.mesh.y<17800, md.mesh.y>12200), np.logical_and(md.mesh.x<65000, md.mesh.x>20000)))]=100  #25000
-    h[np.where(np.logical_and(md.geometry.bed<1200, np.logical_and(md.mesh.x<85000, md.mesh.x>30000)))]=100
+    h[np.where(np.logical_and(md.geometry.bed<1200, np.logical_and(md.mesh.x<45000, md.mesh.x>20000)))]=100
     
     md=bamg(md, 'field', old_mesh_geometry, 'hmax', 1000, 'hmin', params['hmin'], 'gradation', 1, 'hVertices', h)
     md.miscellaneous.name=run_name
@@ -284,7 +284,7 @@ def extenddomain(params, run_name, load_name, fixfront):
     #md.geometry.thickness[np.where(md.mesh.x<5)]=md.masstransport.spcthickness[np.where(md.mesh.x<5)]
     #md.geometry.surface[np.where(md.mesh.x<5)]=md.geometry.base[np.where(md.mesh.x<5)]+md.geometry.thickness[np.where(md.mesh.x<5)]
     md.groundingline.melt_interpolation='FullMeltOnPartiallyFloating'
-    md=adddis(md, params)
+    #md=adddis(md, params)
     
     return md
 
