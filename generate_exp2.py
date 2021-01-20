@@ -259,12 +259,7 @@ def adddis(md, params):
 
     if params['bump_pos']!=0:       
         pos3=np.where(np.logical_and(md.mesh.x<bump_end, md.mesh.x>bump_begin))
-        grounded=np.where(md.mask.groundedice_levelset>0)
-        floating=np.where(md.mask.groundedice_levelset<0)
-        groundpos=np.intersect1d(pos3, grounded)
-        floatpos=np.intersect1d(pos3, floating)
-        md.geometry.thickness[groundpos]=md.geometry.surface[groundpos]-md.geometry.bed[groundpos]
-        md.geometry.thickness[floatpos]=md.geometry.surface[floatpos]-md.geometry.base[floatpos]
+        md.geometry.thickness[pos3]=md.geometry.surface[pos3]-md.geometry.bed[pos3]
         
     return md
     
